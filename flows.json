@@ -19,7 +19,7 @@
         "id": "3e5f70faaba22eaf",
         "type": "tab",
         "label": "GNSS",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -2143,10 +2143,10 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "1",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -2162,15 +2162,15 @@
         "id": "217bc2caa6730966",
         "type": "exec",
         "z": "3e5f70faaba22eaf",
-        "command": "/home/debian/owasys4x_binaries/POLLUX_GPS 10001",
+        "command": "/home/debian/owasys4x_binaries/GPS_LS_OWASYS",
         "addpay": "",
         "append": "",
-        "useSpawn": "false",
+        "useSpawn": "true",
         "timer": "",
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 490,
+        "x": 480,
         "y": 80,
         "wires": [
             [
@@ -2210,6 +2210,55 @@
             [
                 "ec1f737c2ff4f2ee"
             ]
+        ]
+    },
+    {
+        "id": "c19144b997dc9629",
+        "type": "inject",
+        "z": "3e5f70faaba22eaf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "52a8f63dbf160784"
+            ]
+        ]
+    },
+    {
+        "id": "52a8f63dbf160784",
+        "type": "exec",
+        "z": "3e5f70faaba22eaf",
+        "command": "sudo pkill GPS_LS_OWASYS",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [],
+            [],
+            []
         ]
     },
     {
